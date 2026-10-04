@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,700,500,400&display=swap');
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────
+   FRESH BAKED PRINTS — GLOBAL DESIGN SYSTEM
+   Tailwind v4 @theme inline tokens
+───────────────────────────────────────────── */
+
+@theme inline {
+  /* Brand colours */
+  --color-brand-black:   #000000;
+  --color-brand-white:   #F0F0F0;
+  --color-brand-paper:   #FAF7F2;
+  --color-brand-cyan:    #4A9DCF;
+  --color-brand-magenta: #C93183;
+  --color-brand-yellow:  #E0D94D;
+
+  /* Semantic aliases */
+  --color-background: var(--color-brand-black);
+  --color-foreground: var(--color-brand-white);
+  --color-surface:    var(--color-brand-paper);
+  --color-accent-1:   var(--color-brand-cyan);
+  --color-accent-2:   var(--color-brand-magenta);
+  --color-accent-3:   var(--color-brand-yellow);
+
+  /* Typography */
+  --font-display: "Cabinet Grotesk", "Clash Display", system-ui, sans-serif;
+  --font-body:    "Inter", system-ui, sans-serif;
+  --font-sans:    var(--font-body);
+
+  /* Radii */
+  --radius-card:  12px;
+  --radius-pill:  999px;
+
+  /* Spacing extras */
+  --spacing-section: 7rem;
+
+  /* Shadows */
+  --shadow-glow-cyan:    0 0 32px 0 rgba(74,157,207,0.35);
+  --shadow-glow-magenta: 0 0 32px 0 rgba(201,49,131,0.35);
+  --shadow-glow-yellow:  0 0 32px 0 rgba(224,217,77,0.35);
+}
+
+/* ── CSS Variables (runtime-accessible) ── */
+:root {
+  --c-black:   #000000;
+  --c-white:   #F0F0F0;
+  --c-paper:   #FAF7F2;
+  --c-cyan:    #4A9DCF;
+  --c-magenta: #C93183;
+  --c-yellow:  #E0D94D;
+
+  --header-h: 72px;
+}
+
+/* Fonts loaded via @import at top of file */
+
+/* ─────────────────────────────────────────────
+   BASE RESET
+───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--c-black);
+  color: var(--c-white);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ─────────────────────────────────────────────
+   TYPOGRAPHY SCALE
+───────────────────────────────────────────── */
+.font-display { font-family: "Cabinet Grotesk", system-ui, sans-serif; }
+.font-body    { font-family: "Inter", system-ui, sans-serif; }
+
+/* ─────────────────────────────────────────────
+   PAPER SURFACE
+───────────────────────────────────────────── */
+.surface-paper {
+  background-color: var(--c-paper);
+  color: var(--c-black);
+}
+
+/* ─────────────────────────────────────────────
+   PRINT-STUDIO MOTIFS
+───────────────────────────────────────────── */
+
+/* Halftone dot grid overlay */
+.halftone-overlay {
+  position: relative;
+}
+.halftone-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(74,157,207,0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Paper grain texture */
+.grain-overlay {
+  position: relative;
+}
+.grain-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: overlay;
+}
+
+/* CMYK misregistration text shadow */
+.misreg-text {
+  text-shadow:
+    -2px -1px 0 rgba(74,157,207,0.55),
+     2px  1px 0 rgba(201,49,131,0.45);
+}
+.misreg-text-sm {
+  text-shadow:
+    -1px -0.5px 0 rgba(74,157,207,0.4),
+     1px  0.5px 0 rgba(201,49,131,0.35);
+}
+
+/* Registration mark crosshair */
+.reg-mark {
+  position: relative;
+}
+.reg-mark::before,
+.reg-mark::after {
+  content: "";
+  position: absolute;
+  background-color: var(--c-cyan);
+  opacity: 0.5;
+}
+.reg-mark::before {
+  width: 1px;
+  height: 20px;
+  top: -10px;
+  left: 50%;
+}
+.reg-mark::after {
+  width: 20px;
+  height: 1px;
+  left: -10px;
+  top: 50%;
+}
+
+/* Crop-mark corners on cards */
+.crop-marks {
+  position: relative;
+}
+.crop-marks::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--c-cyan), var(--c-cyan)) top left / 14px 1px no-repeat,
+    linear-gradient(var(--c-cyan), var(--c-cyan)) top left / 1px 14px no-repeat,
+    linear-gradient(var(--c-cyan), var(--c-cyan)) top right / 14px 1px no-repeat,
+    linear-gradient(var(--c-cyan), var(--c-cyan)) top right / 1px 14px no-repeat,
+    linear-gradient(var(--c-cyan), var(--c-cyan)) bottom left / 14px 1px no-repeat,
+    linear-gradient(var(--c-cyan), var(--c-cyan)) bottom left / 1px 14px no-repeat,
+    linear-gradient(var(--c-cyan), var(--c-cyan)) bottom right / 14px 1px no-repeat,
+    linear-gradient(var(--c-cyan), var(--c-cyan)) bottom right / 1px 14px no-repeat;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.4;
+  border-radius: inherit;
+}
+
+/* ─────────────────────────────────────────────
+   GRADIENT UTILITIES
+───────────────────────────────────────────── */
+.gradient-cmy {
+  background: linear-gradient(135deg, var(--c-cyan) 0%, var(--c-magenta) 50%, var(--c-yellow) 100%);
+}
+.gradient-cmy-text {
+  background: linear-gradient(135deg, var(--c-cyan) 0%, var(--c-magenta) 50%, var(--c-yellow) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─────────────────────────────────────────────
+   CUSTOM CURSOR
+───────────────────────────────────────────── */
+* { cursor: none !important; }
+
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--c-yellow);
+  transition: transform 0.1s ease;
+}
+.cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid var(--c-cyan);
+  transition: transform 0.08s ease, width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+}
+.cursor-ring.hover {
+  width: 48px;
+  height: 48px;
+  border-color: var(--c-magenta);
+}
+
+/* ─────────────────────────────────────────────
+   SCROLLBAR
+───────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #111; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--c-cyan), var(--c-magenta));
+  border-radius: 3px;
+}
+
+/* ─────────────────────────────────────────────
+   SELECTION
+───────────────────────────────────────────── */
+::selection {
+  background: var(--c-yellow);
+  color: var(--c-black);
+}
+
+/* ─────────────────────────────────────────────
+   UTILITY CLASSES
+───────────────────────────────────────────── */
+.container-xl {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.section-gap { padding-block: var(--spacing-section, 7rem); }
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--c-yellow);
+  color: var(--c-black);
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.8rem 1.8rem;
+  border-radius: var(--radius-pill);
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: none !important;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(224,217,77,0.35);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--c-white);
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid rgba(240,240,240,0.3);
+  transition: border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  cursor: none !important;
+}
+.btn-outline:hover {
+  border-color: var(--c-cyan);
+  color: var(--c-cyan);
+  box-shadow: 0 0 20px rgba(74,157,207,0.2);
+}
+
+/* ─────────────────────────────────────────────
+   MARQUEE STRIP
+───────────────────────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+.marquee-wrapper { overflow: hidden; }
+
+/* ─────────────────────────────────────────────
+   PAGE TRANSITION OVERLAY
+───────────────────────────────────────────── */
+.page-wipe {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: linear-gradient(135deg, var(--c-cyan) 0%, var(--c-magenta) 50%, var(--c-yellow) 100%);
+  transform-origin: left;
+}
+
+/* ─────────────────────────────────────────────
+   REDUCED MOTION
+───────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .marquee-track { animation: none; }
+}

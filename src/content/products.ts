@@ -1,0 +1,357 @@
+export interface Product {
+  slug: string;
+  name: string;
+  category: string;
+  tagline: string;
+  description: string;
+  startingPrice: string;
+  turnaround: string;
+  sizes: string[];
+  materials: string[];
+  useCases: string[];
+  featured: boolean;
+  gradient: string; // CSS gradient for placeholder
+}
+
+export const products: Product[] = [
+  {
+    slug: "banners",
+    name: "Banners",
+    category: "Large Format",
+    tagline: "Make every entrance unforgettable.",
+    description:
+      "Full-color vinyl banners printed on heavyweight 13 oz scrim vinyl. Indoor or outdoor, hemmed & grommeted for instant hang.",
+    startingPrice: "$29",
+    turnaround: "Next Day",
+    sizes: ['2×4\'', '3×6\'', '4×8\'', '5×10\'', 'Custom'],
+    materials: ["13 oz Scrim Vinyl", "Mesh Vinyl"],
+    useCases: ["Events", "Grand Openings", "Trade Shows", "Storefronts"],
+    featured: true,
+    gradient: "linear-gradient(135deg, #4A9DCF 0%, #000 100%)",
+  },
+  {
+    slug: "business-cards",
+    name: "Business Cards",
+    category: "Stationery",
+    tagline: "First impressions, perfectly printed.",
+    description:
+      "Premium 16 pt card stock with UV coating. Full-color both sides. Make your brand impossible to forget.",
+    startingPrice: "$19",
+    turnaround: "Next Day",
+    sizes: ['3.5×2\'\'', 'Square 2×2\'\'', 'Slim 3.5×1.75\'\''],
+    materials: ["16 pt Gloss", "16 pt Matte", "Soft-Touch"],
+    useCases: ["Networking", "Marketing", "Brand Identity"],
+    featured: true,
+    gradient: "linear-gradient(135deg, #C93183 0%, #000 100%)",
+  },
+  {
+    slug: "flyers",
+    name: "Flyers",
+    category: "Marketing",
+    tagline: "Spread the word — literally.",
+    description:
+      "Vibrant full-color flyers on 100 lb gloss or matte text. Perfect for promotions, menus, and announcements.",
+    startingPrice: "$15",
+    turnaround: "Next Day",
+    sizes: ['4×6\'\'', '5.5×8.5\'\'', '8.5×11\'\''],
+    materials: ["100 lb Gloss Text", "100 lb Matte Text"],
+    useCases: ["Promotions", "Events", "Menus", "Announcements"],
+    featured: true,
+    gradient: "linear-gradient(135deg, #E0D94D 0%, #C93183 100%)",
+  },
+  {
+    slug: "retractable-banners",
+    name: "Retractable Banners",
+    category: "Display",
+    tagline: "Roll it out. Stand out.",
+    description:
+      "Professional retractable banner stands for trade shows, lobbies, and events. Sets up in seconds.",
+    startingPrice: "$89",
+    turnaround: "2–3 Days",
+    sizes: ['24×78\'\'', '33×78\'\'', '36×78\'\''],
+    materials: ["Gloss Film", "Matte Film"],
+    useCases: ["Trade Shows", "Lobbies", "Presentations"],
+    featured: false,
+    gradient: "linear-gradient(135deg, #4A9DCF 0%, #C93183 100%)",
+  },
+  {
+    slug: "yard-signs",
+    name: "Yard Signs",
+    category: "Outdoor",
+    tagline: "Plant your message anywhere.",
+    description:
+      "Corrugated plastic yard signs with H-wire stakes included. UV-resistant full-color printing.",
+    startingPrice: "$12",
+    turnaround: "Next Day",
+    sizes: ['18×24\'\'', '24×36\'\''],
+    materials: ["4mm Corrugated Plastic"],
+    useCases: ["Real Estate", "Events", "Campaigns", "Lawn Advertising"],
+    featured: false,
+    gradient: "linear-gradient(135deg, #E0D94D 0%, #4A9DCF 100%)",
+  },
+  {
+    slug: "stickers-labels",
+    name: "Stickers & Labels",
+    category: "Stationery",
+    tagline: "Stick with quality.",
+    description:
+      "Custom die-cut stickers and labels. Waterproof, UV-resistant — for products, packaging, or branding.",
+    startingPrice: "$25",
+    turnaround: "2–3 Days",
+    sizes: ['Custom Die-Cut', 'Circle', 'Square', 'Rectangle'],
+    materials: ["Gloss Vinyl", "Matte Vinyl", "Clear Vinyl"],
+    useCases: ["Branding", "Packaging", "Promotions"],
+    featured: false,
+    gradient: "linear-gradient(135deg, #C93183 0%, #E0D94D 100%)",
+  },
+  {
+    slug: "foamboard",
+    name: "Foam Board",
+    category: "Display",
+    tagline: "Lightweight. Stunning. Ready.",
+    description:
+      "High-resolution prints mounted on rigid foam board. Ideal for presentations, signs, and displays.",
+    startingPrice: "$35",
+    turnaround: "2–3 Days",
+    sizes: ['11×14\'\'', '16×20\'\'', '18×24\'\'', '24×36\'\''],
+    materials: ["3/16\" White Foam Board"],
+    useCases: ["Presentations", "Retail Displays", "Events"],
+    featured: false,
+    gradient: "linear-gradient(135deg, #4A9DCF 0%, #E0D94D 100%)",
+  },
+  {
+    slug: "coro-boards",
+    name: "Coro Boards",
+    category: "Outdoor",
+    tagline: "Corrugated. Durable. Brilliant.",
+    description:
+      "Full-color coroplast signs for outdoor and indoor use. Lightweight and weather-resistant.",
+    startingPrice: "$18",
+    turnaround: "Next Day",
+    sizes: ['18×24\'\'', '24×36\'\'', '48×96\'\''],
+    materials: ["4mm Coroplast"],
+    useCases: ["Outdoor Signage", "Real Estate", "Events"],
+    featured: false,
+    gradient: "linear-gradient(135deg, #000 0%, #4A9DCF 100%)",
+  },
+  {
+    slug: "booklet",
+    name: "Booklets",
+    category: "Marketing",
+    tagline: "Your story, bound beautifully.",
+    description:
+      "Saddle-stitched booklets with full-color cover and interior pages. Catalogs, menus, programs, and more.",
+    startingPrice: "$45",
+    turnaround: "3–5 Days",
+    sizes: ['5.5×8.5\'\'', '8.5×11\'\''],
+    materials: ["80 lb Gloss Cover", "70 lb Text Interior"],
+    useCases: ["Catalogs", "Menus", "Programs", "Portfolios"],
+    featured: false,
+    gradient: "linear-gradient(135deg, #C93183 0%, #4A9DCF 100%)",
+  },
+  {
+    slug: "card-stock",
+    name: "Card Stock Prints",
+    category: "Stationery",
+    tagline: "Substantial feel. Stunning color.",
+    description:
+      "Heavy card stock printing for postcards, invitations, table tents, and more. Premium finishes available.",
+    startingPrice: "$22",
+    turnaround: "Next Day",
+    sizes: ['4×6\'\'', '5×7\'\'', '5.5×8.5\'\'', 'A2'],
+    materials: ["100 lb Card Stock", "130 lb Card Stock"],
+    useCases: ["Postcards", "Invitations", "Table Tents"],
+    featured: false,
+    gradient: "linear-gradient(135deg, #E0D94D 0%, #000 100%)",
+  },
+  {
+    slug: "tickets",
+    name: "Tickets",
+    category: "Events",
+    tagline: "Every ticket tells a story.",
+    description:
+      "Perforated event tickets with sequential numbering. Full-color printing, tear-off stub option.",
+    startingPrice: "$30",
+    turnaround: "2–3 Days",
+    sizes: ['2×5.5\'\'', '2×7\'\''],
+    materials: ["60 lb Uncoated Text"],
+    useCases: ["Concerts", "Fundraisers", "Sports", "Galas"],
+    featured: false,
+    gradient: "linear-gradient(135deg, #4A9DCF 0%, #E0D94D 100%)",
+  },
+  {
+    slug: "backdrops",
+    name: "Step & Repeat Backdrops",
+    category: "Events",
+    tagline: "Your brand, front and center.",
+    description:
+      "Photo-ready step-and-repeat banners on premium fabric or vinyl. Available with adjustable stand.",
+    startingPrice: "$149",
+    turnaround: "3–5 Days",
+    sizes: ['6×8\'', '8×8\'', '8×10\'', '10×10\''],
+    materials: ["Wrinkle-Free Fabric", "Gloss Vinyl"],
+    useCases: ["Red Carpet", "Trade Shows", "Brand Events"],
+    featured: false,
+    gradient: "linear-gradient(135deg, #C93183 0%, #000 100%)",
+  },
+  {
+    slug: "arch-way",
+    name: "Arch Way Displays",
+    category: "Display",
+    tagline: "Make an entrance worth remembering.",
+    description:
+      "Large-format arch display systems for grand entrances. Custom shapes and full-bleed printing.",
+    startingPrice: "$249",
+    turnaround: "5–7 Days",
+    sizes: ['8\'', '10\'', '12\''],
+    materials: ["Fabric", "Vinyl"],
+    useCases: ["Grand Openings", "Trade Shows", "Sporting Events"],
+    featured: false,
+    gradient: "linear-gradient(135deg, #4A9DCF 0%, #C93183 50%, #E0D94D 100%)",
+  },
+  {
+    slug: "accordion-wall",
+    name: "Accordion Wall",
+    category: "Display",
+    tagline: "Flexible display, infinite impact.",
+    description:
+      "Modular accordion-style panel walls that fold flat for easy transport. Full-color fabric panels.",
+    startingPrice: "$189",
+    turnaround: "5–7 Days",
+    sizes: ['6 panels', '8 panels', '10 panels'],
+    materials: ["Stretch Fabric"],
+    useCases: ["Exhibitions", "Events", "Retail"],
+    featured: false,
+    gradient: "linear-gradient(135deg, #E0D94D 0%, #4A9DCF 100%)",
+  },
+  {
+    slug: "big-check",
+    name: "Giant Checks",
+    category: "Events",
+    tagline: "The biggest check you'll ever write.",
+    description:
+      "Oversized novelty checks for charity events, raffles, grand prize giveaways, and promotions.",
+    startingPrice: "$39",
+    turnaround: "Next Day",
+    sizes: ['15×30\'\'', '24×48\'\''],
+    materials: ["Foam Board", "Coroplast"],
+    useCases: ["Charity", "Sweepstakes", "Promotions"],
+    featured: false,
+    gradient: "linear-gradient(135deg, #E0D94D 0%, #C93183 100%)",
+  },
+  {
+    slug: "dance-floor",
+    name: "Dance Floor Wraps",
+    category: "Events",
+    tagline: "Your brand underfoot — literally.",
+    description:
+      "Custom-printed dance floor vinyl wraps with anti-slip coating. Perfect for weddings and corporate events.",
+    startingPrice: "$299",
+    turnaround: "5–7 Days",
+    sizes: ['12×12\'', '16×16\'', '20×20\''],
+    materials: ["Anti-Slip Vinyl"],
+    useCases: ["Weddings", "Galas", "Corporate Events"],
+    featured: false,
+    gradient: "linear-gradient(135deg, #C93183 0%, #E0D94D 100%)",
+  },
+  {
+    slug: "easel-print",
+    name: "Easel Prints",
+    category: "Display",
+    tagline: "Gallery quality. Event ready.",
+    description:
+      "Large-format prints with integrated easel backing. Perfect for seating charts, welcome signs, and displays.",
+    startingPrice: "$55",
+    turnaround: "2–3 Days",
+    sizes: ['16×20\'\'', '20×30\'\'', '24×36\'\''],
+    materials: ["Foam Board", "Gatorboard"],
+    useCases: ["Weddings", "Presentations", "Retail"],
+    featured: false,
+    gradient: "linear-gradient(135deg, #4A9DCF 0%, #E0D94D 100%)",
+  },
+  {
+    slug: "handheld-signs",
+    name: "Handheld Signs",
+    category: "Events",
+    tagline: "Hold it high. Stand out.",
+    description:
+      "Custom handheld signs on foam board or coroplast with wooden stick handle. Fan paddle options available.",
+    startingPrice: "$18",
+    turnaround: "Next Day",
+    sizes: ['9×12\'\'', '12×18\'\''],
+    materials: ["Foam Board", "Coroplast"],
+    useCases: ["Sports", "Events", "Rallies", "Parades"],
+    featured: false,
+    gradient: "linear-gradient(135deg, #E0D94D 0%, #000 100%)",
+  },
+  {
+    slug: "lifesize-cutout",
+    name: "Life-Size Cutouts",
+    category: "Display",
+    tagline: "Who's that? Oh — it's you.",
+    description:
+      "Full-color life-size cardboard cutouts of people, logos, or products. Mounted on foam board with easel.",
+    startingPrice: "$79",
+    turnaround: "3–5 Days",
+    sizes: ['Up to 5\'', 'Up to 6\'', 'Custom'],
+    materials: ["Foam Board with Easel"],
+    useCases: ["Retail", "Events", "Promotions", "Parties"],
+    featured: false,
+    gradient: "linear-gradient(135deg, #C93183 0%, #4A9DCF 100%)",
+  },
+  {
+    slug: "obituary",
+    name: "Obituary Programs",
+    category: "Stationery",
+    tagline: "Honor a life, beautifully.",
+    description:
+      "Compassionate, professionally printed obituary programs and memorial booklets. Rush turnaround available.",
+    startingPrice: "$35",
+    turnaround: "Next Day",
+    sizes: ['4×9\'\'', '5.5×8.5\'\'', '8.5×11\'\''],
+    materials: ["100 lb Gloss Text", "100 lb Matte Text"],
+    useCases: ["Memorial Services", "Funerals"],
+    featured: false,
+    gradient: "linear-gradient(135deg, #333 0%, #666 100%)",
+  },
+  {
+    slug: "stands",
+    name: "Display Stands",
+    category: "Display",
+    tagline: "Let your message stand tall.",
+    description:
+      "Aluminum and steel display stands for signs, posters, and banners. Single or double-sided options.",
+    startingPrice: "$49",
+    turnaround: "2–3 Days",
+    sizes: ['Tabletop', 'Floor Stand', 'X-Stand'],
+    materials: ["Aluminum", "Steel"],
+    useCases: ["Retail", "Trade Shows", "Lobbies"],
+    featured: false,
+    gradient: "linear-gradient(135deg, #555 0%, #4A9DCF 100%)",
+  },
+  {
+    slug: "custom-apparel",
+    name: "Custom Apparel",
+    category: "Apparel",
+    tagline: "Wear your brand.",
+    description:
+      "Custom screen-printed and DTG (direct-to-garment) t-shirts, hoodies, hats, and more. No minimum orders.",
+    startingPrice: "$15",
+    turnaround: "5–7 Days",
+    sizes: ['XS–5XL'],
+    materials: ["Cotton", "Polyester Blend", "Performance"],
+    useCases: ["Uniforms", "Merchandise", "Events", "Teams"],
+    featured: false,
+    gradient: "linear-gradient(135deg, #C93183 0%, #E0D94D 50%, #4A9DCF 100%)",
+  },
+];
+
+export const featuredProducts = products.filter((p) => p.featured);
+
+export function getProductBySlug(slug: string): Product | undefined {
+  return products.find((p) => p.slug === slug);
+}
+
+export const productCategories = [
+  ...new Set(products.map((p) => p.category)),
+];
